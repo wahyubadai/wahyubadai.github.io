@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond&family=Nunito+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+   
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Popins+Sans-serif&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+        .btn{
+            display: none;
+            position: fixed;
+            top: 15px;
+            left: 30px;
+            height: 45px;
+            width: 45px;
+            text-align: center;
+            background: #BD945A;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: left 0.4s ease;
+            z-index: 100;
+        }
+        
+        .btn span{
+        color: white;
+        font-size: 25px;
+        line-height: 45px;
+        }
+        .btn.click span:before{
+        content: '\f00d';
+        }
+        .sidebar{
+            position: fixed;
+            width: 250px;
+            height: 100vh;       
+            margin-top: 0px;        
+            background: #F6F1F0;
+            z-index: 100;
+        }
+        .sidebar.show{
+            left: 0px;
+        }
+        .btn.click{
+        left: 260px;
+        }
+        .sidebar .text{
+            text-align: center;
+            line-height: 100px;
+            background-color: #F6F1F0;
+        }
+        .sidebar .text span{
+            font-family: 'Alex Brush', cursive;
+            font-size: 36px;
+            color: #BD945A;
+            display: block;
+            line-height: 80px;
+            font-weight: 400;
+        }
+        .sidebar .text h6{
+            font-family: 'Nunito Sans';
+            margin-top: -50px;
+            color: #000;
+            font-size: 10px;
+            letter-spacing: 5px;
+            text-align: center;
+            font-weight: 400;
+            margin-bottom: 5px;
+        }
+        nav ul{
+            background: #F6F1F0;
+            height: 100%;
+            width: 100%;
+            list-style: none;
+            margin-top: 60px;
+        }
+        nav ul li{
+            line-height: 35px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        nav ul li a{
+            position: relative;
+            color: #000;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            display: block;
+            width: 100%;
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            border-left: 3px solid transparent ;
+        }
+        /* nav ul li a:hover{
+            color: white;
+            background: #F6F1F0;
+            border-left-color: cyan;
+        } */
+        nav ul ul{
+            position: static;
+            display: none;
+        }
+        nav ul .feat-show.show{
+            display: block;
+        }
+        nav ul .serv-show.show1{
+            display: block;
+        }
+        nav ul ul li{
+            line-height: 42px;
+            border-bottom: none;
+        }
+        nav ul ul li a{
+            font-size: 17px;
+            color: #F6F1F0;
+            padding-left: 80px;
+        }
+        nav ul li a span{
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            font-size: 22px;
+            transition: transform 0.4s ;
+        }
+        nav ul li a span.rotate{
+            transform: translateY(-50%)rotate(-180deg);
+        }
+        .sidebar .footer .garis{
+            display: flex;
+            height: 1px;
+            width: 60px;
+            margin: 5px auto;
+            background: #888888;
+            margin-top: 400px;
+        }
+        .sidebar .footer p{
+            margin: 0 0 20px;
+            line-height: 1.75em;
+            font-weight: 400;
+            text-align: center;
+            color: #888888;
+            font-size: 12px;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+        
+        /* Background image page 1*/
+
+        .page1{
+            background: url("img/bg.jpg");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .page1 .main-text h6{
+            position: relative;
+            font-family:  'Alex Brush', cursive;
+            font-size: 60px;
+            font-weight: 400;
+            color: #fff;
+            z-index: 1;
+        }
+        .page1 .main-text span{
+            position: relative;
+            font-size: 50px;
+            line-height: 1em;
+            font-weight: 700;
+            text-align: center;
+            color: #fff;
+            z-index: 1;
+            font-family: 'Nunito Sans', sans-serif;
+            text-decoration: none;
+        }
+
+        /* card couple page 2*/
+
+        .page2{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            height: 700px;
+            margin-left: 250px;
+            background: #faf8f7;
+            padding: 100px 0;
+        }
+        /* card left*/
+        .profile_left{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            width: 600px;
+            padding: 20px;
+            margin: 20px;
+            overflow: hidden;
+        }
+        .profile_left h6{
+            font-size: 24px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .profile_left span{
+            font-size: 24px;
+            font-family:'Alex Brush', cursive;
+            color: #BD945A;
+            line-height: 40px;
+        }
+        .profile_left p{
+            font-size: 15px;
+            font-family: 'Nunito Sans', sans-serif;
+            color: #888888;
+            line-height: 25px;
+            margin-bottom: 20px;
+        }
+
+        /* card right*/
+        .profile_right{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            width: 600px;
+            padding: 20px;
+            margin: 20px;
+            overflow: hidden;
+        }
+        .profile_right h6{
+            font-size: 24px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .profile_right span{
+            font-size: 24px;
+            font-family:'Alex Brush', cursive;
+            color: #BD945A;
+            line-height: 40px;
+        }
+        .profile_right p{
+            font-size: 15px;
+            font-family: 'Nunito Sans', sans-serif;
+            color: #888888;
+            line-height: 25px;
+            margin-bottom: 20px;
+        }
+        .img1 img{
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin-right: 15px;
+            margin-left: 15px;
+            margin-bottom: 65px;
+        }
+        .img2 img{
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin-right: 15px;
+            margin-left: 15px;
+            margin-bottom: 65px;
+        }
+        .info_profile_left{
+            text-align: right;
+            margin: 5px;
+            padding: 2px;
+        }
+        .info_profile_right{
+            text-align: left;
+            margin: 5px;
+            padding: 2px;
+        }
+        .socila a{
+            height: 40px;
+            width: 40px;
+            background: #fff;
+            display: inline-flex;
+            text-decoration: none;
+            margin:  0 5px;
+            border-radius: 50%;
+            border: 1px solid #eee;
+        }
+        .socila a i{
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            line-height: 40px;
+            color: #888888;
+        }
+        .socila a:hover{
+            background: #BD945A;
+        }
+        .socila a i:hover{
+            color:#eee;
+        }
+        .text-center h3{
+            font-size: 60px;
+            font-weight: 400;
+            margin-top: 100px;
+            color: #BD945A;
+            font-family: 'Alex Brush', cursive;
+        }
+        .text-center h4{
+            font-size: 18px;
+            font-weight: 400;
+            color: #000000;
+            padding-left: 80px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* banner 1 countdown page 3*/
+
+        .page3{
+            display: flex;
+            top: 80px;
+            left: 100px;
+            right: 100px;
+            bottom: 80px;
+            background: url("img/banner-1.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 400px;
+            margin-left: 250px;
+            z-index: 5;
+        }
+        .page3 h2{
+            position: relative;
+            font-family:  'Alex Brush', cursive;
+            font-size: 60px;
+            font-weight: 400;
+            color: #fff;
+            z-index: 1;
+        }
+        .countdown{
+            display: flex;
+            z-index: 1;
+        }
+        .countdown div{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            color: #fff;
+            margin: 0 15px;
+            font-size: 60px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            font-family: 'Nunito Sans', sans-serif;
+            text-decoration: none;
+        }
+        .page3 h3{
+            position: relative;
+            font-size: 50px;
+            line-height: 1em;
+            font-weight: 700;
+            text-align: center;
+            color: #fff;
+            z-index: 1;
+            font-family: 'Nunito Sans', sans-serif;
+            text-decoration: none;
+        }
+        .countdown div:before{
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 35px;
+            color: #fff;
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 3em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .countdown #day:before{
+            content: 'Days';
+        }
+        .countdown #hour:before{
+            content: 'Hours';
+        }
+        .countdown #minute:before{
+            content: 'Minutes';
+        }
+        .countdown #second:before{
+            content: 'Seconds';
+        }
+
+        /* Story page 4*/
+
+        .page4{
+            display: flex;
+            background:white;
+            align-items: center;
+            justify-content: center;
+            margin-left: 250px;
+            padding: 60px;
+            width: auto;
+            box-sizing: border-box;
+        }
+        .page4 .story{
+            justify-content: center;
+            box-sizing: border-box;
+            display: flex;
+            width: 100%;
+            margin-left: 60px;
+            margin-right: 60px;
+
+        }
+        .imgs{
+            position: relative;
+            width: 500px;
+        }
+        .imgs img{
+            position: relative;
+            width: 100%; 
+            z-index: 1;          
+        }
+        .imgs:before{
+            position: absolute;
+            content: '';
+            top: 45px;
+            left: 45px;
+            bottom: 0;
+            border: 10px solid #BD945A;
+            width: 90%;
+            height: 90%;
+        }
+        .story_text{
+            width: auto;
+            margin: 60px 100px;
+        }
+        .story_text h4{
+            display: block;
+            position: relative;
+            top: 12px;
+            font-family: 'Alex Brush', cursive;
+            font-weight: 400;
+            font-size: 30px;
+            color: #BD945A;
+            line-height: 1.25em;
+            margin-bottom: 10px;
+        }
+        .story_text h3{
+            color: #000;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            font-size: 30px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .story_text h5{
+            color: #000;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            font-size: 25px;
+            letter-spacing: 1px;
+            
+        }
+        .story_text p{
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 400px;
+            color: #888888;
+            margin: 0 0 20px;
+            line-height: 1.75em;
+        }
+
+        /* card friends page 5*/
+
+        .page5{
+        margin-left: 250px;
+        padding: 0;
+        display: flex;
+        height: 700px;
+        flex-direction:column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: #faf8f7;
+        box-sizing: border-box;
+        }
+        .text-fiends{
+            position: relative;
+            left: -350px;
+            top: -150px;
+            text-align: left;
+        }
+        .text-fiends span{
+            font-family: 'Alex Brush', cursive;
+            font-weight: 400;
+            font-size: 30px;
+            color: #BD945A;
+            line-height: 1.25em;
+            margin-bottom: 10px;
+        }
+        .text-fiends h6{
+            color: #000;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            font-size: 30px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+        .slider{
+        max-width: 1100px;
+        display: flex;
+        margin-top: -150px;
+        }
+        .slider .card{
+        flex: 1;
+        margin: 0px 0px;
+        background: #fff;
+        }
+        .slider .card .img{
+        height: 120px;
+        width: 120px;
+        margin: auto;
+        }
+        .slider .card .img img{
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        position: relative;
+        top: 25px;
+        }
+         .slider .card .content{
+        padding: 40px 30px;
+        }
+         .card .content .title{
+        font-size: 24px;
+        font-weight: 500;
+        font-family: 'Cormorant Garamond', serif;;
+        }
+         .card .content .sub-title{
+        font-size: 24px;
+        font-weight: 400;
+        color: #BD945A;
+        line-height: 20px;
+        font-family: 'Alex Brush', cursive;;
+        }
+        .card .content p{
+        text-align: justify;
+        margin: 10px 0;
+        font-family: 'Nunito Sans', sans-serif;;
+        font-size: 15px;
+        font-weight: 400;
+        color: #888888;
+        line-height: 1.75em;
+        }
+        
+            /* .owl-carousel span {
+            width:10px;
+            height:10px;
+            margin:5px 7px;
+            background: #888888 !important;
+            display:block;
+            -webkit-backface-visibility:visible;
+            -webkit-transition:opacity 200ms ease;
+            -moz-transition:opacity 200ms ease;
+            -ms-transition:opacity 200ms ease;
+            -o-transition:opacity 200ms ease;
+            transition:opacity 200ms ease;
+            -webkit-border-radius:30px;
+            -moz-border-radius:30px;
+            border-radius:30px;
+        }       
+        .owl-carousel .active span {
+            width:10px;
+            height:10px;
+            margin:5px 7px;
+            background: #BD945A !important;
+            display:block;
+            -webkit-backface-visibility:visible;
+            -webkit-transition:opacity 200ms ease;
+            -moz-transition:opacity 200ms ease;
+            -ms-transition:opacity 200ms ease;
+            -o-transition:opacity 200ms ease;
+            transition:opacity 200ms ease;
+            -webkit-border-radius:30px;
+            -moz-border-radius:30px;
+            border-radius:30px;
+        } */
+
+        /* benner 2 times page */
+
+        .paralax-page{
+            display: flex;
+            background: url("img/banner-3.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 400px;
+            margin-left: 250px;
+            z-index: 5;
+        }
+        .paralax-page h2{
+            position: relative;
+            font-family:  'Alex Brush', cursive;
+            font-size: 60px;
+            font-weight: 400;
+            color: #fff;
+            z-index: 1;
+        }
+        .paralax-page h3{
+            position: relative;
+            font-size: 50px;
+            line-height: 1em;
+            font-weight: 700;
+            text-align: center;
+            color: #fff;
+            z-index: 1;
+            font-family: 'Nunito Sans', sans-serif;
+            text-decoration: none;
+        }
+
+        /* wedding organizer page 6*/
+
+        .page6{
+            margin-left: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #faf8f7;
+        }
+        .page6 .countainer2{
+            display: block;
+        }
+        .text3{
+            margin: 40px 0;
+            text-align: left;    
+        }
+        .text3 span{
+            font-family: 'Alex Brush', cursive;
+            font-weight: 400;
+            font-size: 30px;
+            color: #BD945A;
+            line-height: 1.25em;
+            margin-bottom: 10px;
+        }
+        .text3 h6{
+            color: #000;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            font-size: 30px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            
+        }
+        .page6 .countainer2 .warps{
+            background :url("img/bg.jpg"); 
+            background-position: center center;
+            display: flex;
+            justify-content: center;
+            max-width: 1100px;
+            margin-top: 30px;
+            margin-bottom: 100px;
+        }
+        .page6 .countainer2 .warps .cards{
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            display: flex;
+            max-width: 600px;
+            flex-direction: column;
+            color: #000;
+            background: #fff;
+            border: 1px solid #F6F1F0;
+            border-right: 0;
+            transition: all .4s;
+        }
+        .page6 .countainer2 .warps .cards:hover{
+            background: none;
+        }
+        .page6 .countainer2 .warps .cards .custom-font{
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            font-size: 75px;
+            color: transparent;
+            -webkit-text-stroke: 1px #BD945A;
+            margin-left: 30px;
+            line-height: 1.25em;
+            margin-top: 50px;
+            margin-bottom: 15px;
+        }
+        .page6 .countainer2 .warps .cards .profile-name{
+            color: #000;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            font-size: 25px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-left: 30px;
+        }
+        .page6 .countainer2 .warps .cards .profile_main{
+            margin-left: 2em;
+            text-align: left;
+            margin: 0 20px;
+        }
+        .page6 .countainer2 .warps .cards .profile-body{
+            margin: 20px 30px;
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            color: #888888;
+            line-height: 1.75em;
+            text-align: justify;
+        }
+        
+        /* gallery images page 7*/
+
+        .page7{
+            margin-left: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+            
+        }
+        .page7 .countainer{
+            padding: 20px;
+            width: 1280px;
+        }
+        .page7 .countainer .text3{
+            margin-left: 100px;
+        }
+        .page7 ul{
+            display: flex;
+            margin-bottom: 10px;
+            margin-left: 100px;
+        }
+        .page7 ul li{
+            list-style: none;
+            background: #fff;
+            padding: 8px 10px;
+            margin: 5px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            color: #888888;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+        .page7 ul li.active{
+            background: #BD945A;
+            color:#fff;
+        }
+        .product{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .product .itemBox{
+            position: relative;
+            width: 300px;
+            height: 200px;
+            margin: 30px;
+            overflow: hidden;
+        }
+        .product .itemBox img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .product .itemBox .contentBx{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            backdrop-filter: blur(15px);
+            z-index: 10;
+            top: 0px;
+            opacity: 0;
+            transition: 0.5s;
+        }
+        .product .itemBox:hover img{
+            transform:  scale(1.10);
+            transition: 0.5s;
+        }
+        .product .itemBox:hover .contentBx{
+            top: 0px;
+            opacity: 0.5;
+            background: #000000;
+        }
+        .product .itemBox .contentBx h3{
+            color: #fff;
+            font-family: 'Alex Brush', cursive;
+            font-weight: 500;
+            font-size: 25px;
+            letter-spacing: 1px;
+        }
+        .profile-sidebar img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        @media screen and (max-width: 600px) {    
+            
+        .sidebar{
+            left: -250px;
+        } 
+        .btn{
+            display:block;
+        }
+        .page1 .main-text h6{
+            font-size: 35px;
+            font-weight: 700;
+        }
+        .page1 .main-text span{
+            font-size: 25px;
+            text-shadow: #BD945A ;
+        }
+        .sidebar .footer .garis{
+            display: flex;
+            height: 1px;
+            width: 60px;
+            margin: 5px auto;
+            background: #888888;
+            margin-top: 100px;
+        }
+        /* card couple page 2*/
+        .page2{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 20px;   
+            height: auto;
+        }
+        .profile_left{
+            display: flex;
+            width: auto;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column; 
+        }
+        .profile_right{
+            display: flex;
+            width: auto;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .info_profile_left{
+            text-align: center;
+            margin: 5px;
+            padding: 2px;   
+            margin-top: 150px;
+            margin-bottom: -130px;
+        }
+        .info_profile_right{
+            text-align: center;
+            margin: 5px;
+            padding: 2px;   
+            margin-top: -50px;
+        }
+        img{
+            margin-bottom: 20px;
+        }
+        .profile_left .img1{
+            display: flex;
+            flex-direction: column-reverse;
+            margin-top: -260px;
+            margin-bottom: 240px;
+        }    
+        .text-center h3{
+            text-align: center;
+            font-size: 30px;
+            font-weight: 400;
+            color: #BD945A;
+            font-family: 'Alex Brush', cursive;
+        }
+        .text-center h4{
+            font-size: 18px;
+            text-align: center;
+            font-weight: 400;
+            color: #000000;
+            margin-left: -85px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        /* countdown page 3*/
+        .page3{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: auto;           
+            margin-left: 0;
+        }
+        .page3 h2{
+            position: relative;
+            font-family:  'Alex Brush', cursive;
+            font-size: 35px;
+            font-weight: 400;
+            color: #fff;
+        }
+        .countdown{
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+        .countdown div{          
+            font-size: 50px;
+            font-weight: 600;
+        }
+        .countdown div:before{            
+            font-size: 15px;   
+        }
+        /* story page 4*/
+        .page4{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: auto;           
+            margin-left: 0px;
+        }
+        .page4 .story{
+            flex-direction: column;
+            width: 270px;
+        }
+        .imgs{
+            width: auto;
+            margin: 0px;
+        }
+        .imgs:before{
+            top: 25px;
+            left: 35px;
+        }
+        .story_text{
+            margin: 60px 0;
+        }
+        /* card friends page 5*/
+        .page5{
+            margin-left: 0px;
+        }
+        .slider .card{
+        flex: 1;
+        margin: 0px 50px;
+        background: #fff;
+        }
+        .page5 .text span{
+         font-size: 30px;
+        }
+        .page5 .text h6{
+            font-size: 15px;
+            margin-top: -20px;
+            margin-left: 90px;
+        }
+        /* wedding organization page 6*/
+        .page6{
+            margin-left: 0px;
+        }
+        .countainer2{
+            width: auto;
+        }
+        .text3{
+            margin-left: 30px;
+        }
+        .warps{
+            flex-direction: column;
+            align-items: center;
+            width: auto;
+            margin: 0 25px;
+        }
+        .cards{
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .text-fiends{
+            position: relative;
+            left: 0px;
+            top: -150px;
+            text-align: left;
+        }
+        .text-fiends span{
+            font-size: 25px;
+        }
+        .text-fiends h6{
+            font-size: 20px;
+        }
+        .paralax-page{
+            margin-left: 0;
+            line-height: 30px;    
+        }
+        .paralax-page h2{
+            margin-top: 0px;
+            font-size: 35px;
+            margin-bottom: 30px;
+        }
+        .paralax-page h3{
+            font-size: 35px;
+        }
+        .page7{
+            margin-left: 0;
+            padding-bottom: 80px ;
+        }
+        .page7 .countainer .text3{
+            margin-left: 30px;
+        }
+        .page7 ul{
+            display: flex;
+            margin-bottom: 10px;
+            margin-left: 20px;
+        }
+       
+    </style>
+       
+    <title>Wedding</title>
+</head>
+<body>
+    <div class="btn">
+        <span class="fas fa-bars"></span>
+     </div>
+    <nav class="sidebar">
+        <div class="text">
+            <span>Olivia & Enrico</samp>
+            <h6>15.11.2021</h6>
+            </div>
+            <div class="footer">
+            
+            <ul>
+            <li><a href="#">Home</a></li>
+            <li>
+                <a href="#card_couples" class="feat-btn">Couple
+                    
+                </a>
+                
+            </li>
+            
+            <li>
+                <a href="#story" class="serv-btn">Our Story
+                    
+                </a>
+                
+            </li>
+            <li><a href="#card_friends">Friends</a></li>
+            <li><a href="#organization">Organization</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#when&where">When & Where</a></li>
+            <li><a href="#">Gift Registry</a></li>
+        </ul>
+            <div class="footer">
+            <span class="garis"></span>
+            <p>Olivia & Enrico wedding 
+            <br>15 December 2021, New York</p>
+            </div>
+    </nav>
+
+    <script>
+        $('.btn').click(function(){
+            $(this).toggleClass("click");
+            $('.sidebar').toggleClass("show");
+        });
+        $('.feat-btn').click(function(){
+            $('nav ul .feat-show').toggleClass("show");
+            $('nav ul .first').toggleClass("rotate");
+        });
+        $('.serv-btn').click(function(){
+            $('nav ul .serv-show').toggleClass("show1");
+            $('nav ul .second').toggleClass("rotate");
+        });
+    </script>
+
+  
+    <section class="page1">
+        <div class="main-text">
+            <h6>Olivia & Enrico</h6>
+            <span>15.11.2021</span>
+        </div>
+    </section>
+
+    <!-- Card Couples -->
+
+    <section class="page2" id="card_couples">   
+        <div class="profile_left">       
+            <div class="info_profile_left">
+                <h6>Olivia Martin</h6>   
+                <span>The Bride</span>
+                <p>Olivia fringilla dui at elit finibus viverra nec a lacus seda themo the miss druane semper sollicitudin non the fermen.</p>
+                <div class="socila">
+                    <a href="#" class="fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="fb"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="fb"><i class="fab fa-twitter"></i></a>
+            </div>   
+            </div> 
+            <div class="img1">
+                <img src="img/bride.jpg" alt="">
+            </div>  
+        </div>
+        <div class="profile_right">
+            <div class="img2">  
+                <img src="img/groom.jpg" alt="">
+            </div>
+            <div class="info_profile_right">
+                <h6>Enrico Denilo</h6>   
+                <span>The Groom</span>
+                <p>Enrico fringilla dui at elit finibus viverra nec a lacus seda themo the miss druane semper sollicitudin non the fermen.</p>
+                <div class="socila">
+                    <a href="#" class="fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="fb"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="fb"><i class="fab fa-twitter"></i></a>
+            </div>   
+            </div>   
+        </div>
+        <div class="text-center">
+            <h3>Are getting married!</h3>
+            <h4>Desember 15, 2020 - New York, Brooklyn </h4>
+        </div>
+    </section>
+
+    <!-- Countdown -->
+
+    <section class="page3">
+        <h2>We will become a family in</h2>
+        <div class="countdown">
+            <div id="day">NA</div>
+            <div id="hour">NA</div>
+            <div id="minute">NA</div>
+            <div id="second">NA</div>
+        </div>
+        <script type="text/javascript">
+            var countDate = new Date('Dec 15, 2021 00:00:00').getTime();
+
+            function newYear(){
+                var now = new Date().getTime();
+                    gap = countDate - now;
+
+                    var second = 1000;
+                    var minute = second * 60;
+                    var hour = minute *60;
+                    var day = hour *24;
+
+                    var d = Math.floor(gap / (day));
+                    var h = Math.floor((gap % (day)) / (hour));
+                    var m = Math.floor((gap % (hour)) / (minute));
+                    var s = Math.floor((gap % (minute)) / second);
+
+                    document.getElementById('day').innerText = d;
+                    document.getElementById('hour').innerText = h;
+                    document.getElementById('minute').innerText = m;
+                    document.getElementById('second').innerText = s;               
+            }
+
+            setInterval(function(){
+                newYear();
+            },1000)
+        </script>
+        
+    </section>
+
+    <!-- Story -->
+
+    <section class="page4" id="story">
+        <div class="story">
+            <div class="imgs">
+            <img src="img/wedding_couple.jpg" alt="">            
+            </div>
+        <div class="story_text">
+        <h4>Our love.</h4>
+        <h3>our story</h3>
+        <p>Curabit aliquet orci elit genes tristique lorem commodo vitae. Tuliaum tincidunt nete sede gravida aliquam, neque libero hendrerit magna, sit amet mollis lacus ithe maurise. Dunya erat volutpat edat themo the druanye semper</p>
+        <p>Luality fringilla duiman at elit vinibus viverra nec a lacus themo the druanye sene sollicitudin mi suscipit non sagie the fermen</p>
+        <p>Phasellus viverra tristique justo duis vitae diam neque nivamus ac est augue artine aringilla dui at elit finibus viverra nec a lacus. Nedana themo eros odio semper soe suscipit non. Curabit aliquet orci elit genes tristique</p>
+        <h5>Dec 5th, 2021, We Said Yes!</h5>
+        <p>Luality fringilla duiman at elit finibus viverra nec a lacus themo the druanye sene sollicitudin mi suscipit non sagie the fermen.</p>
+        </div>
+        </div>
+    </section>
+
+    <!-- Card Friends -->
+
+    <section class="page5" id="card_friends">
+        <div class="text-fiends">
+            <span>Our best friends ever</samp>
+            <h6>Thanks for being there</h6>
+            </div>
+        <div class="slider owl-carousel">
+         <div class="card">
+            <div class="img">
+               <img src="img/b1.jpg" alt="">
+            </div>
+            <div class="content">
+               <div class="title">
+                  Briana Tozour
+               </div>
+               <div class="sub-title">
+                  Graphic Designer
+               </div>
+               <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit modi dolorem quis quae animi nihil minus sed unde voluptas cumque.
+               </p>
+            </div>
+         </div>
+         <div class="card">
+            <div class="img">
+               <img src="img/w1.jpg" alt="">
+            </div>
+            <div class="content">
+               <div class="title">
+                  Pricilla Preez
+               </div>
+               <div class="sub-title">
+                  Web Developer
+               </div>
+               <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit modi dolorem quis quae animi nihil minus sed unde voluptas cumque.
+               </p>
+            </div>
+         </div>
+         <div class="card">
+            <div class="img">
+               <img src="img/b2.jpg" alt="">
+            </div>
+            <div class="content">
+               <div class="title">
+                  Pricilla Preez
+               </div>
+               <div class="sub-title">
+                  Web Developer
+               </div>
+               <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit modi dolorem quis quae animi nihil minus sed unde voluptas cumque.
+               </p>
+            </div>
+         </div>
+         <div class="card">
+            <div class="img">
+               <img src="img/w1.jpg" alt="">
+            </div>
+            <div class="content">
+               <div class="title">
+                  Pricilla Preez
+               </div>
+               <div class="sub-title">
+                  Web Developer
+               </div>
+               <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit modi dolorem quis quae animi nihil minus sed unde voluptas cumque.
+               </p>
+            </div>
+         </div>
+         <div class="card">
+            <div class="img">
+               <img src="img/b2.jpg" alt="">
+            </div>
+            <div class="content">
+               <div class="title">
+                  Pricilla Preez
+               </div>
+               <div class="sub-title">
+                  Web Developer
+               </div>
+               <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit modi dolorem quis quae animi nihil minus sed unde voluptas cumque.
+               </p>
+            </div>
+         </div>
+         <div class="card">
+            <div class="img">
+               <img src="img/w1.jpg" alt="">
+            </div>
+            <div class="content">
+               <div class="title">
+                  Eliana Maia
+               </div>
+               <div class="sub-title">
+                  App Developer
+               </div>
+               <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit modi dolorem quis quae animi nihil minus sed unde voluptas cumque.
+               </p>
+            </div>
+         </div>
+      </div>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/owl.carousel.js"></script>
+        <script>
+         $('.slider').owlCarousel({
+                loop:true,
+                autoplay: true,
+                autoplayTimeout: 2000, //2000ms = 2s;
+                autoplayHoverPause: true,
+                margin:10,
+                nav:false,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:2
+                    },
+                    1000:{
+                        items:3
+                    }
+                }
+            })
+        </script>
+    </section>
+    
+    <!-- Background Fixed -->
+
+    <section class="paralax-page">
+        <h2>Looking forward to see you!</h2>
+        <h3>15.11.2021</h3>
+    </section>
+
+    <!-- Wedding Organization -->
+
+    <section class="page6" id="organization">
+        <div class="countainer2">
+        <div class="text3">
+            <span>Wedding</samp>
+            <h6>Organization</h6>
+        </div>
+        <div class="warps">
+        <div class="cards">
+            <div class="profile-sidebar">
+            <h2 class="custom-font ">01</h2>
+            </div>
+            <div class="profile-main">
+            <h2 class="profile-name">ceremony</h2>
+            <p class="profile-body">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Odio cupiditate assumenda nisi eveniet fugiat voluptatem sint dolore qui, 
+                quia doloribus quibusdam voluptatibus quod unde cumque consequuntur dolorem distinctio animi nemo?
+            </p>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="profile-sidebar">
+            <h2 class="custom-font ">02</h2>
+            </div>
+            <div class="profile-main">
+            <h2 class="profile-name">lunch time</h2>
+            <p class="profile-body">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Odio cupiditate assumenda nisi eveniet fugiat voluptatem sint dolore qui, 
+                quia doloribus quibusdam voluptatibus quod unde cumque consequuntur dolorem distinctio animi nemo?
+            </p>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="profile-sidebar">
+            <h2 class="custom-font">03</h2>
+            </div>
+            <div class="profile-main">
+            <h2 class="profile-name">party</h2>
+            <p class="profile-body">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Odio cupiditate assumenda nisi eveniet fugiat voluptatem sint dolore qui, 
+                quia doloribus quibusdam voluptatibus quod unde cumque consequuntur dolorem distinctio animi nemo?
+            </p>
+            </div>
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <!--Gallery-->
+
+    <section class="page7" id="gallery">
+        <div class="countainer">
+        <div class="text3">
+            <span>Gallery</samp>
+            <h6>Our Memories</h6>
+        </div>
+        <ul>
+            <li class="list active" data-filter="All">All</li>
+            <li class="list" data-filter="ceremony">Ceremony</li>
+            <li class="list" data-filter="party">Party</li>   
+        </ul>
+        <div class="product">
+            <div class="itemBox ceremony">
+                <div class="contentBx">
+                <h3>Wedding  Ceremony</h3>
+                </div>
+            <img src="img/1.jpg">
+            </div>
+            <div class="itemBox party">
+                <div class="contentBx">
+                <h3>Wedding  Party</h3>
+            </div><img src="img/2.jpg">
+            </div>
+            <div class="itemBox ceremony">
+                <div class="contentBx">
+                <h3>Wedding  Ceremony</h3>
+                </div>
+                <img src="img/3.jpg"></div>
+            <div class="itemBox party">
+                <div class="contentBx">
+                <h3>Wedding  Party</h3>
+                </div>
+                <img src="img/4.jpg"></div>
+            <div class="itemBox ceremony">
+                <div class="contentBx">
+                <h3>Wedding  Ceremony</h3>
+                </div>
+                <img src="img/5.jpg"></div>
+            <div class="itemBox party">
+                <div class="contentBx">
+                <h3>Wedding  Party</h3>
+                </div>
+                <img src="img/6.jpg"></div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script >
+            $(document).ready(function(){
+                $('.list').click(function(){
+                    const value = $(this).attr('data-filter');
+                    if (value == 'All'){
+                        $('.itemBox').show('1000');
+                    }else{
+                        $('.itemBox').not('.'+value).hide('1000');
+                        $('.itemBox').filter('.'+value).show('1000');
+                    }
+                })
+                    $('.list').click(function(){
+                        $(this).addClass('active').siblings().removeClass('active');
+                })
+            })
+        </script>
+        </div>
+    </section>
+    
+    <!--When & Where-->
+
+    <section class="page6" id="when&where">
+        <div class="countainer2">
+        <div class="text3">
+            <span>Wedding</samp>
+            <h6>Organization</h6>
+        </div>
+        <div class="warps">
+
+        <div class="cards">
+            <div class="profile-sidebar">
+            <img src="img/r1.jpg" alt="">
+            </div>
+            <div class="profile-main">
+            <h2 class="profile-name">ceremony</h2>
+            <p class="profile-body">
+                <i class="fas fa-map-marker-alt"></i> 175 Brooklyn, New York 11244, USA
+            </p>
+            <p class="profile-body">
+                <i class="far fa-clock"></i>
+                <span>12:00am - 13:00pm</span>
+            </p>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="profile-sidebar">
+            <img src="img/r2.jpg" alt="">
+            </div>
+            <div class="profile-main">
+            <h2 class="profile-name">ceremony</h2>
+            <p class="profile-body">
+                <i class="fas fa-map-marker-alt"></i> Fortune Brooklyn restaurant,194 Broadway, Brooklyn New York 11244, USA
+            </p>
+            <p class="profile-body">
+                <i class="far fa-clock"></i>
+                <span>14:00pm</span>
+            </p>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="profile-sidebar">
+            <img src="img/r3.jpg" alt="">
+            </div>
+            <div class="profile-main">
+            <h2 class="profile-name">ceremony</h2>
+            <p class="profile-body">
+            <i class="fas fa-map-signs"></i> Fortune Brooklyn restaurant,194 Broadway, Brooklyn New York 11244, USA
+            </p>
+            <p class="profile-body">
+            <i class="fas fa-map-signs"></i>
+            <span>14:00pm</span>
+            </p>
+            </div>
+        </div>
+        </div>
+        </div>
+    </section>
+    
+</body>
+</html>

@@ -836,6 +836,7 @@
             justify-content: center;
             align-items: center;
             background: #faf8f7;
+            overflow: hidden;
         }
         .page8 .countainer_question{
             display: block;
@@ -844,7 +845,7 @@
             display: flex;
             justify-content: center;
             max-width: 1100px;
-            margin-top: 30px;
+            margin-top: 200px;
             margin-bottom: 100px;
         }
         .page8 .countainer_question .warps_question .cards{
@@ -1089,7 +1090,12 @@
             margin-bottom: 10px;
             margin-left: 20px;
         }
-       
+        .page8{
+            margin-left: 0;
+        }
+        .page8 .countainer_question .warps_question{
+            max-width: 350px;
+        }
     </style>
        
     <title>Wedding</title>
@@ -1518,6 +1524,7 @@
             <h6>When & Where</h6>
         </div>
         <div class="warps_question">
+        <div class="slider owl-carousel">
         <div class="cards">
             <div class="profile-sidebar">
             <img src="img/r1.jpg" alt="">
@@ -1565,6 +1572,31 @@
         </div>
         </div>
         </div>
+        </div>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/owl.carousel.js"></script>
+        <script>
+         $('.slider').owlCarousel({
+                loop:true,
+                autoplay: true,
+                autoplayTimeout: 2000, //2000ms = 2s;
+                autoplayHoverPause: true,
+                margin:10,
+                nav:false,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:2
+                    },
+                    1000:{
+                        items:3
+                    }
+                }
+            })
+        </script>
+
     </section>
     
 </body>

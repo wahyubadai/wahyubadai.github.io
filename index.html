@@ -882,7 +882,59 @@
             line-height: 1.75em;
             text-align: justify;
         }
-        
+        .page9{
+            margin-left: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url("img/banner-2.jpg");
+            background-attachment: fixed;
+        }
+        .page9 .wrap_rsv{
+            max-width: 30%;
+            background: #fff;
+            padding: 0 50px;
+            margin: 100px 0;
+        }
+        .page9 .wrap_rsv .text3{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+        .page9 .wrap_rsv .form{
+            width: 100%;
+            padding: 0px; 
+        }
+        .wrap_rsv .form form input{
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 10px;
+            outline: none;
+            font-size: 16px;
+            border: 1px solid #ececec;
+            font-family: 'Nunito Sans';
+        }
+        .wrap_rsv .form form textarea{
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 10px;
+            outline: none;
+            font-size: 16px;
+            height: 130px;
+            border: 1px solid #ececec;
+            font-family: 'Nunito Sans';
+        }
+        .wrap_rsv .form form input[type="submit"]{
+            background: #BD945A;
+            border: none;
+            color: #fff;
+            max-width: 100px;
+            cursor: pointer;
+            
+            font-size: 12px;
+            font-family: 'Nunito Sans';
+            margin-bottom: 50px;
+        }
         @media screen and (max-width: 600px) {    
             
         .sidebar{
@@ -1096,6 +1148,16 @@
         .page8 .countainer_question .warps_question{
             max-width: 350px;
         }
+        .page9{
+            margin-left: 0;
+        }
+        .page9 .wrap_rsv .text3{
+            margin-left: -10px;
+        }
+        .page9 .wrap_rsv{
+            max-width: 80%;
+            padding: 0 30px;
+        }
     </style>
        
     <title>Wedding</title>
@@ -1110,27 +1172,21 @@
             <h6>15.11.2021</h6>
             </div>
             <div class="footer">
-            
             <ul>
             <li><a href="#">Home</a></li>
             <li>
-                <a href="#card_couples" class="feat-btn">Couple
-                    
+                <a href="#card_couples" >Couple
                 </a>
-                
             </li>
-            
             <li>
-                <a href="#story" class="serv-btn">Our Story
-                    
+                <a href="#story" >Our Story   
                 </a>
-                
             </li>
             <li><a href="#card_friends">Friends</a></li>
             <li><a href="#organization">Organization</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#when&where">When & Where</a></li>
-            <li><a href="#">Gift Registry</a></li>
+            <li><a href="#rsv">R.S.V.P</a></li>
         </ul>
             <div class="footer">
             <span class="garis"></span>
@@ -1143,14 +1199,6 @@
         $('.btn').click(function(){
             $(this).toggleClass("click");
             $('.sidebar').toggleClass("show");
-        });
-        $('.feat-btn').click(function(){
-            $('nav ul .feat-show').toggleClass("show");
-            $('nav ul .first').toggleClass("rotate");
-        });
-        $('.serv-btn').click(function(){
-            $('nav ul .serv-show').toggleClass("show1");
-            $('nav ul .second').toggleClass("rotate");
         });
     </script>
 
@@ -1266,7 +1314,7 @@
         <div class="text-fiends">
             <span>Our best friends ever</samp>
             <h6>Thanks for being there</h6>
-            </div>
+        </div>
         <div class="slider owl-carousel">
          <div class="card">
             <div class="img">
@@ -1596,8 +1644,24 @@
                 }
             })
         </script>
-
     </section>
-    
+
+    <!--RSV Page 9-->
+    <section class="page9" id="rsv">
+        <div class="wrap_rsv">
+            <div class="text3">
+                <span>Will you attend?</samp>
+                <h6>R.S.V.P</h6>
+            </div>
+            <div class="form">
+            <form>
+                <input type="text" placeholder="Name">
+                <input type="text" placeholder="Guests">
+                <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
+                <input type="submit" value="SEND">
+            </form>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

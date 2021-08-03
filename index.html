@@ -23,7 +23,7 @@
             user-select: none;
             font-family: 'Nunito Sans', sans-serif;
         }
-        .btn{
+        #toggle{
             display: none;
             position: fixed;
             top: 15px;
@@ -38,15 +38,15 @@
             z-index: 100;
         }
         
-        .btn span{
+        #toggle span{
         color: white;
         font-size: 25px;
         line-height: 45px;
         }
-        .btn.click span:before{
+        #toggle.active span:before{
         content: '\f00d';
         }
-        .sidebar{
+        #sidebar{
             position: fixed;
             width: 250px;
             height: 100vh;       
@@ -54,18 +54,18 @@
             background: #F6F1F0;
             z-index: 100;
         }
-        .sidebar.show{
+        #sidebar.active{
             left: 0px;
         }
-        .btn.click{
+        #toggle.active{
         left: 260px;
         }
-        .sidebar .text{
+        #sidebar .text{
             text-align: center;
             line-height: 100px;
             background-color: #F6F1F0;
         }
-        .sidebar .text span{
+        #sidebar .text span{
             font-family: 'Alex Brush', cursive;
             font-size: 36px;
             color: #BD945A;
@@ -73,7 +73,7 @@
             line-height: 80px;
             font-weight: 400;
         }
-        .sidebar .text h6{
+        #sidebar .text h6{
             font-family: 'Nunito Sans';
             margin-top: -50px;
             color: #000;
@@ -141,7 +141,7 @@
         nav ul li a span.rotate{
             transform: translateY(-50%)rotate(-180deg);
         }
-        .sidebar .footer .garis{
+        #sidebar .footer .garis{
             display: flex;
             height: 1px;
             width: 60px;
@@ -149,7 +149,7 @@
             background: #888888;
             margin-top: 400px;
         }
-        .sidebar .footer p{
+        #sidebar .footer p{
             margin: 0 0 20px;
             line-height: 1.75em;
             font-weight: 400;
@@ -963,10 +963,10 @@
         }
         @media screen and (max-width: 600px) {    
             
-        .sidebar{
+        #sidebar{
             left: -250px;
         } 
-        .btn{
+        #toggle{
             display:block;
         }
         .page1 .main-text h6{
@@ -977,7 +977,7 @@
             font-size: 25px;
             text-shadow: #BD945A ;
         }
-        .sidebar .footer .garis{
+        #sidebar .footer .garis{
             display: flex;
             height: 1px;
             width: 60px;
@@ -1192,10 +1192,10 @@
     <title>Wedding</title>
 </head>
 <body>
-    <div class="btn">
+    <div id="toggle">
         <span class="fas fa-bars"></span>
      </div>
-    <nav class="sidebar">
+    <nav  id="sidebar">
         <div class="text">
             <span>Olivia & Enrico</samp>
             <h6>15.11.2021</h6>
@@ -1223,15 +1223,26 @@
             <br>15 December 2021, New York</p>
             </div>
     </nav>
-
     <script>
-        $('.btn').click(function(){
-            $(this).toggleClass("click");
-            $('.sidebar').toggleClass("show");
-        });
+            const toggle = document.getElementById('toggle');
+            const sidebar = document.getElementById('sidebar');
+
+            document.onclick = function(e){
+            if(e.target.id !=='sidebar' && e.target.id !== 'toggle')
+                {
+                    toggle.classList.remove('active');
+                    sidebar.classList.remove('active')
+                }
+            }
+
+
+            toggle.onclick = function(){
+                toggle.classList.toggle('active');
+                sidebar.classList.toggle('active')
+            }
+
     </script>
 
-  
     <section class="page1">
         <div class="main-text">
             <h6>Olivia & Enrico</h6>

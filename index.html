@@ -13,7 +13,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-   
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Popins+Sans-serif&display=swap');
         *{
@@ -1253,8 +1254,8 @@
     <!-- Card Couples -->
 
     <section class="page2" id="card_couples">   
-        <div class="profile_left">       
-            <div class="info_profile_left">
+        <div class="profile_left" data-aos="fade-right">       
+            <div class="info_profile_left" >
                 <h6>Olivia Martin</h6>   
                 <span>The Bride</span>
                 <p>Olivia fringilla dui at elit finibus viverra nec a lacus seda themo the miss druane semper sollicitudin non the fermen.</p>
@@ -1268,8 +1269,8 @@
                 <img src="img/bride.jpg" alt="">
             </div>  
         </div>
-        <div class="profile_right">
-            <div class="img2">  
+        <div class="profile_right" data-aos="fade-left">
+            <div class="img2" >  
                 <img src="img/groom.jpg" alt="">
             </div>
             <div class="info_profile_right">
@@ -1283,10 +1284,12 @@
             </div>   
             </div>   
         </div>
-        <div class="text-center">
+        <div class="text-center" data-aos="fade-up">
             <h3>Are getting married!</h3>
             <h4>Desember 15, 2020 - New York, Brooklyn </h4>
         </div>
+
+        <script src="bower_components/aos/dist/aos.js"></script>
     </section>
 
     <!-- Countdown -->
@@ -1332,11 +1335,11 @@
     <!-- Story -->
 
     <section class="page4" id="story">
-        <div class="story">
+        <div class="story" data-aos="fade-up">
             <div class="imgs">
             <img src="img/wedding_couple.jpg" alt="">            
             </div>
-        <div class="story_text">
+        <div class="story_text" data-aos="fade-left">
         <h4>Our love.</h4>
         <h3>our story</h3>
         <p>Curabit aliquet orci elit genes tristique lorem commodo vitae. Tuliaum tincidunt nete sede gravida aliquam, neque libero hendrerit magna, sit amet mollis lacus ithe maurise. Dunya erat volutpat edat themo the druanye semper</p>
@@ -1493,8 +1496,8 @@
             <span>Wedding</samp>
             <h6>Organization</h6>
         </div>
-        <div class="warps">
-        <div class="cards">
+        <div class="warps" data-aos="fade-up">
+        <div class="cards" >
             <div class="profile-sidebar">
             <h2 class="custom-font ">01</h2>
             </div>
@@ -1507,7 +1510,7 @@
             </p>
             </div>
         </div>
-        <div class="cards">
+        <div class="cards" >
             <div class="profile-sidebar">
             <h2 class="custom-font ">02</h2>
             </div>
@@ -1611,7 +1614,7 @@
             <span>Questions</samp>
             <h6>When & Where</h6>
         </div>
-        <div class="warps_question">
+        <div class="warps_question" data-aos="fade-up">
         <div class="slider owl-carousel">
         <div class="cards">
             <div class="profile-sidebar">
@@ -1704,10 +1707,16 @@
         </div>
     </section>
     <section class="page10">
-        <div class="footer_text">
+        <div class="footer_text" data-aos="fade-up">
             <p>Olivia & Enrico</p> 
             <span>December 15 2021, New York Brooklyn</span>
         </div>
     </section>
+
+    <script src="bower_components/aos/dist/aos.js"></script>
+    <script>
+    AOS.init();
+    </script>
+
 </body>
 </html>
